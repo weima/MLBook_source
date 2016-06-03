@@ -10,30 +10,30 @@
 
 # Demonstration of the Perceptron and Linear Regressor on the basic logic functions
 
-from numpy import *
+import numpy
 import linreg
 
-inputs = array([[0,0],[0,1],[1,0],[1,1]])
-testin = concatenate((inputs,-ones((shape(inputs)[0],1))),axis=1)
+inputs = numpy.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+testin = numpy.concatenate((inputs, -numpy.ones((numpy.shape(inputs)[0], 1))), axis=1)
 
 # AND data
-ANDtargets = array([[0],[0],[0],[1]])
+ANDtargets = numpy.array([[0], [0], [0], [1]])
 # OR data
-ORtargets = array([[0],[1],[1],[1]])
+ORtargets = numpy.array([[0], [1], [1], [1]])
 # XOR data
-XORtargets = array([[0],[1],[1],[0]])
+XORtargets = numpy.array([[0], [1], [1], [0]])
 
-print "AND data"
+print("AND data")
 ANDbeta = linreg.linreg(inputs,ANDtargets)
-ANDout = dot(testin,ANDbeta)
-print ANDout
+ANDout = numpy.dot(testin, ANDbeta)
+print(ANDout)
 
-print "OR data"
+print("OR data")
 ORbeta = linreg.linreg(inputs,ORtargets)
-ORout = dot(testin,ORbeta)
-print ORout
+ORout = numpy.dot(testin, ORbeta)
+print(ORout)
 
-print "XOR data"
+print("XOR data")
 XORbeta = linreg.linreg(inputs,XORtargets)
-XORout = dot(testin,XORbeta)
-print XORout
+XORout = numpy.dot(testin, XORbeta)
+print(XORout)

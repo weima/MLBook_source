@@ -8,11 +8,11 @@
 # Stephen Marsland, 2008
 
 # This is the start of a script for you to complete
-from pylab import *
-from numpy import *
+import pylab
+import numpy
 import linreg
 
-auto = loadtxt('/Users/srmarsla/Book/Datasets/auto-mpg/auto-mpg.data.txt',comments='"')
+auto = numpy.loadtxt('/Users/srmarsla/Book/Datasets/auto-mpg/auto-mpg.data.txt', comments='"')
 
 # Separate the data into training and testing sets
 
@@ -20,7 +20,7 @@ auto = loadtxt('/Users/srmarsla/Book/Datasets/auto-mpg/auto-mpg.data.txt',commen
 
 # This is the training part
 beta = linreg.linreg(trainin,traintgt)
-testin = concatenate((testin,-ones((shape(testin)[0],1))),axis=1)
-testout = dot(testin,beta)
-error = sum((testout - testtgt)**2)
-print error
+testin = numpy.concatenate((testin, -numpy.ones((numpy.shape(testin)[0], 1))), axis=1)
+testout = numpy.dot(testin, beta)
+error = numpy.sum((testout - testtgt) ** 2)
+print(error)

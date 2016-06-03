@@ -60,7 +60,7 @@ class rbf:
             self.hidden[:,:-1] /= transpose(ones((1,shape(self.hidden)[0]))*self.hidden[:,:-1].sum(axis=1))
         
         # Call Perceptron without bias node (since it adds its own)
-        self.perceptron.pcntrain(self.hidden[:,:-1],targets,eta,niterations)
+        self.perceptron.pcn_train(self.hidden[:, :-1], targets, eta, niterations)
         
     def rbffwd(self,inputs):
 
@@ -75,7 +75,7 @@ class rbf:
         # Add the bias
         hidden[:,-1] = -1
 
-        outputs = self.perceptron.pcnfwd(hidden)
+        outputs = self.perceptron.pcn_fwd(hidden)
         return outputs
     
     def confmat(self,inputs,targets):

@@ -1,4 +1,3 @@
-
 # Code from Chapter 2 of Machine Learning: An Algorithmic Perspective
 # by Stephen Marsland (http://seat.massey.ac.nz/personal/s.r.marsland/MLBook.html)
 
@@ -8,14 +7,16 @@
 
 # Stephen Marsland, 2008
 
-from numpy import *
+import numpy
 
-def linreg(inputs,targets):
 
-	inputs = concatenate((inputs,-ones((shape(inputs)[0],1))),axis=1)
-	beta = dot(dot(linalg.inv(dot(transpose(inputs),inputs)),transpose(inputs)),targets)
+def linreg(inputs, targets):
+    inputs = numpy.concatenate((inputs, -numpy.ones((numpy.shape(inputs)[0], 1))), axis=1)
+    print(repr(inputs))
+    beta = numpy.dot(numpy.dot(numpy.linalg.inv(numpy.dot(numpy.transpose(inputs), inputs)), numpy.transpose(inputs)),
+                     targets)
 
-	outputs = dot(inputs,beta)
-	#print shape(beta)
-	#print outputs
-	return beta
+    outputs = numpy.dot(inputs, beta)
+    # print shape(beta)
+    # print outputs
+    return beta
